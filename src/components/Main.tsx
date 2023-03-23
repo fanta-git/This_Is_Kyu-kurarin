@@ -1,6 +1,8 @@
+import TargetDropzone from "./TargetDropzone";
+
 const Main = () => {
     return (
-        <>Main Compornent</>
+       <TargetDropzone />
     );
 };
 
