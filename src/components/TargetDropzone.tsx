@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
-import Kyukurarin from "./Kyukurarin";
+import DropAndImage from "./DropAndImage";
 
 const TargetDropzone = () => {
   const [fileUrl, setFileUrl] = useState<string>();
@@ -16,7 +16,7 @@ const TargetDropzone = () => {
   return (
     <div {...getRootProps()}>
       <input {...getInputProps()} />
-      <Kyukurarin fileUrl={fileUrl} />
+      <DropAndImage fileUrl={fileUrl} />
     </div>
   );
 };
