@@ -1,4 +1,5 @@
 import { CSSProperties, useEffect, useRef } from "react";
+import useImage from "use-image";
 import { BACKGROUND, HEIGHT, SPACING, WIDTH } from "../const/canvas";
 
 type Props = {
@@ -13,6 +14,7 @@ const style: CSSProperties = {
 const Kyukurarin = (props: Props) => {
   const { fileUrl } = props;
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [image] = useImage(fileUrl ?? '');
 
   useEffect(() => {
     const ctx = canvasRef.current?.getContext('2d');
@@ -21,17 +23,13 @@ const Kyukurarin = (props: Props) => {
     ctx.fillStyle = BACKGROUND;
     ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
-    if (fileUrl === undefined) return;
-    const img = new Image();
-    img.src = fileUrl;
-    img.onload = () => {
-      const scale = HEIGHT / img.height;
-      const costomWidth = img.height * scale | 0;
-      const centerLeft = (WIDTH - costomWidth) / 2 | 0;
+    if (image === undefined) return;
+    const scale = HEIGHT / image.height;
+    const costomWidth = image.width * scale | 0;
+    const centerLeft = (WIDTH - costomWidth) / 2 | 0;
 
-      for (let i = 10; i >= 0; i--) ctx.drawImage(img, centerLeft - SPACING * i, 0, HEIGHT, costomWidth);
-    };
-  }, [fileUrl]);
+    for (let i = 10; i >= 0; i--) ctx.drawImage(image, centerLeft - SPACING * i, 0, HEIGHT, costomWidth);
+  }, [image]);
 
   return (
     <canvas width={WIDTH} height={HEIGHT} style={style} ref={canvasRef} />
