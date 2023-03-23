@@ -28,7 +28,7 @@ const Kyukurarin = (props: Props) => {
     const costomWidth = image.width * scale | 0;
     const centerLeft = (WIDTH - costomWidth) / 2 | 0;
 
-    for (let i = 10; i >= 0; i--) ctx.drawImage(image, centerLeft - SPACING * i, 0, HEIGHT, costomWidth);
+    for (let i = 10; i >= 0; i--) ctx.drawImage(image, centerLeft - SPACING * i, 0, costomWidth, HEIGHT);
   }, [image]);
 
   return (

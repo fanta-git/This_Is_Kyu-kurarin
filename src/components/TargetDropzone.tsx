@@ -1,19 +1,9 @@
-import { Dispatch, SetStateAction, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
+import Kyukurarin from "./Kyukurarin";
 
-type Props = {
-  setFileUrl: Dispatch<SetStateAction<string | undefined>>
-};
-
-const style = {
-  display: 'block',
-  width: '100%',
-  height: 'calc(50vh - 18px)',
-  border: "1px dotted #888"
-};
-
-const TargetDropzone = (props: Props) => {
-  const { setFileUrl } = props;
+const TargetDropzone = () => {
+  const [fileUrl, setFileUrl] = useState<string>();
   const { getRootProps, getInputProps, acceptedFiles } = useDropzone();
 
   useEffect(() => {
@@ -24,9 +14,9 @@ const TargetDropzone = (props: Props) => {
   }, [acceptedFiles, setFileUrl]);
 
   return (
-    <div {...getRootProps()} style={style}>
+    <div {...getRootProps()}>
       <input {...getInputProps()} />
-      drop here
+      <Kyukurarin fileUrl={fileUrl} />
     </div>
   );
 };
