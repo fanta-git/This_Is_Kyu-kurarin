@@ -1,9 +1,10 @@
-import { CSSProperties, useEffect, useRef } from "react";
+import { CSSProperties, RefObject, useEffect } from "react";
 import useImage from "use-image";
 import { BACKGROUND, HEIGHT, SPACING, WIDTH } from "../const/canvas";
 
 type Props = {
-  fileUrl: string | undefined
+  fileUrl: string | undefined,
+  canvasRef: RefObject<HTMLCanvasElement>
 }
 
 const style: CSSProperties = {
@@ -12,8 +13,7 @@ const style: CSSProperties = {
 }
 
 const Kyukurarin = (props: Props) => {
-  const { fileUrl } = props;
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { fileUrl, canvasRef } = props;
   const [image] = useImage(fileUrl ?? '');
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const Kyukurarin = (props: Props) => {
     const centerLeft = (WIDTH - costomWidth) / 2 | 0;
 
     for (let i = 10; i >= 0; i--) ctx.drawImage(image, centerLeft - SPACING * i, 0, costomWidth, HEIGHT);
-  }, [image]);
+  }, [image, canvasRef]);
 
   return (
     <canvas width={WIDTH} height={HEIGHT} style={style} ref={canvasRef} />

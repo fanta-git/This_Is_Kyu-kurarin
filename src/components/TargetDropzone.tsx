@@ -1,8 +1,12 @@
-import { useEffect, useState } from "react";
+import { RefObject, useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import Kyukurarin from "./Kyukurarin";
 
-const TargetDropzone = () => {
+type Props = {
+  canvasRef: RefObject<HTMLCanvasElement>
+};
+
+const TargetDropzone = (props: Props) => {
   const [fileUrl, setFileUrl] = useState<string>();
   const { getRootProps, getInputProps, acceptedFiles } = useDropzone();
 
@@ -16,7 +20,7 @@ const TargetDropzone = () => {
   return (
     <div {...getRootProps()}>
       <input {...getInputProps()} />
-      <Kyukurarin fileUrl={fileUrl} />
+      <Kyukurarin fileUrl={fileUrl} {...props} />
     </div>
   );
 };
