@@ -1,21 +1,28 @@
-import { useEffect } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import { useDropzone } from "react-dropzone";
 
 type Props = {
+  setFileUrl: Dispatch<SetStateAction<string | undefined>>
 };
 
 const style = {
   display: 'block',
   width: '100%',
-  height: 'calc(100vh - 18px)',
+  height: 'calc(50vh - 18px)',
   border: "1px dotted #888"
 };
 
 const TargetDropzone = (props: Props) => {
+  const { setFileUrl } = props;
   const { getRootProps, getInputProps, acceptedFiles } = useDropzone();
+
   useEffect(() => {
-    console.log(acceptedFiles);
-  }, [acceptedFiles])
+    const [file] = acceptedFiles;
+    if (file === undefined) return;
+    const url = URL.createObjectURL(file);
+    setFileUrl(url);
+  }, [acceptedFiles, setFileUrl]);
+
   return (
     <div {...getRootProps()} style={style}>
       <input {...getInputProps()} />
