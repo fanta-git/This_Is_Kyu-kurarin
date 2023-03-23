@@ -1,5 +1,5 @@
 # きゅうくらりんメーカー
-きゅうくらりんのサムネっぽい画像を作るだけのWebサイトです。  
+きゅうくらりんのサムネっぽい画像を作るだけのWebアプリです。  
 https://fanta-git.github.io/this_is_kyu-kurarin/  
 
 #### 本家
