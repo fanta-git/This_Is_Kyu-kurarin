@@ -16,6 +16,7 @@
     "theme_color": "#f7d1dc",
     "background_color": "#f7d1dc",
     "display": "standalone",
-    "start_url": "/",
+    "start_url": "https://fanta-git.github.io/this_is_kyu-kurarin/",
+    "url": "https://fanta-git.github.io/this_is_kyu-kurarin/",
     "Scope": "/"
 }

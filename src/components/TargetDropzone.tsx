@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
-import DropAndImage from "./DropAndImage";
+import DropAndImage from "./OutputImage";
 
 const TargetDropzone = () => {
   const [fileUrl, setFileUrl] = useState<string>();
