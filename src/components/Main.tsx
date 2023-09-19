@@ -1,10 +1,9 @@
+import DefaultWrapper from "./DefaultWrapper";
 import TargetDropzone from "./TargetDropzone";
-import "@exampledev/new.css";
 
 const Main = () => {
   return (
-    <>
-      <header><h3>きゅうくらりんメーカー</h3></header>
+    <DefaultWrapper>
       <TargetDropzone />
       <p>
         上にある枠をクリックして画像を選択、または枠にドラッグ＆ドロップするときゅうくらりんのサムネみたいになります。
@@ -19,7 +18,7 @@ const Main = () => {
       <p>
         <a href="https://www.nicovideo.jp/watch/sm39257413">きゅうくらりん / いよわ feat.可不</a>
       </p>
-    </>
+    </DefaultWrapper>
   );
 };
 
