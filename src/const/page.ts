@@ -1,4 +1,4 @@
-const REPOSITORY = process.env.REPOSITORY ?? '';
+const REPOSITORY = process.env.GITHUB_REPOSITORY ?? '';
 const [userName, repositoryName] = REPOSITORY.split('/');
 
 export const REPOSITORY_URL = `https://github.com/${REPOSITORY}`;
