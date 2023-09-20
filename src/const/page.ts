@@ -1,4 +1,4 @@
-const REPOSITORY = process.env.GITHUB_REPOSITORY ?? '';
+const REPOSITORY = 'fanta-git/this_is_kyu-kura-rin';
 const [userName, repositoryName] = REPOSITORY.split('/');
 
 export const REPOSITORY_URL = `https://github.com/${REPOSITORY}`;
