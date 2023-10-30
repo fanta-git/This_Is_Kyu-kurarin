@@ -1,4 +1,4 @@
-const REPOSITORY = 'fanta-git/this_is_kyu-kura-rin';
+const REPOSITORY = 'fanta-git/this_is_kyu-kurarin';
 const [userName, repositoryName] = REPOSITORY.split('/');
 
 export const REPOSITORY_URL = `https://github.com/${REPOSITORY}`;
